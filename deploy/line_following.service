@@ -1,0 +1,17 @@
+[Unit]
+Description=JetRacer Line Following — Tự động dò line khi khởi động
+After=network.target
+
+[Service]
+Type=simple
+User=jet-ai-lab
+WorkingDirectory=/home/jet-ai-lab/Jetracer_v1
+ExecStart=/usr/bin/python3 -m line_following.main
+Restart=on-failure
+RestartSec=5
+KillSignal=SIGINT
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
